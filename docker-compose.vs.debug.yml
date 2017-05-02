@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-  sitespeedcontroller.master:
-    image: sitespeedcontroller.master:dev
+  ssmmaster:
+    image: sitespeedmanager/master:dev
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}

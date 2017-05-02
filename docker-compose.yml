@@ -1,8 +1,14 @@
 version: '2'
 
+networks:
+  default:
+    external:
+      name: bridge
+
 services:
-  sitespeedcontroller.master:
-    image: sitespeedcontroller.master
+  ssmmaster:
+    image: sitespeedmanager/master
+    network_mode: bridge
     build:
       context: D:\Sources\dev\tools\SiteSpeedController\SiteSpeedController.Master
       dockerfile: Dockerfile

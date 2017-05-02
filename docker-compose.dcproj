@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>d96fd300-94b4-43a0-bbb4-35010d402322</ProjectGuid>
     <DockerServiceUrl>http://localhost:{ServicePort}/api/values</DockerServiceUrl>
-    <DockerServiceName>sitespeedcontroller.master</DockerServiceName>
+    <DockerServiceName>ssmmaster</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.ci.build.yml" />

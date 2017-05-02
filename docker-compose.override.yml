@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  sitespeedcontroller.master:
+  ssmmaster:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
