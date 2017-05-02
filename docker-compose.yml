@@ -10,5 +10,26 @@ services:
     image: sitespeedmanager/master
     network_mode: bridge
     build:
-      context: D:\Sources\dev\tools\SiteSpeedController\SiteSpeedController.Master
+      context: .\SiteSpeedController.Master
       dockerfile: Dockerfile
+
+  ssmui:
+    image: nginx:alpine
+    network_mode: bridge
+    volumes:
+      - .\UI\dist:/usr/share/nginx/html
+    ports:
+      - 8081:80
+
+  loadbalancer:
+    image: haproxy:1.7
+    network_mode: bridge    
+    links:
+      - ssmui    
+      - ssmmaster:ssmmaster
+    volumes:
+      - .\UI\dockercompose\haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - 8080:80
+    expose: 
+      - 8080
