@@ -1,0 +1,29 @@
+version: '2'
+
+networks:
+  default:
+    external:
+      name: bridge
+
+services:
+  ssmui:
+    image: nginx:alpine
+    network_mode: bridge
+    volumes:
+      - ..\dist:/usr/share/nginx/html
+    ports:
+      - 8081:80
+
+  loadbalancer:
+    image: haproxy:1.7
+    network_mode: bridge    
+    links:
+      - ssmui
+    external_links:
+      - ${ssmmastername}:ssmmaster
+    volumes:
+      - .\haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - 8080:80
+    expose: 
+      - 8080
