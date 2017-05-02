@@ -8,15 +8,32 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AgentService {
-    private agentsApi = 'api/agents/';
-    private agentRegistrationQueueApi = 'api/agent-registration-queue/';
+    private agentsApi = 'api/v1/agents/';
+    private agentRegistrationQueueApi = 'api/v1/agent-registration-queue/';
 
     constructor(private http: Http) {
 
     }
 
     getAllApprovedAgents(): Observable<Agent[]> {
-        return this.http.get(this.agentsApi).catch(this.handleError)
+        return this.http.get(this.agentsApi)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    private extractData(res: Response) {
+        const body : any[] = res.json();
+        const result = [];
+
+        // tslint:disable-next-line:forin
+        for (const i of body)
+        {
+            const agent = new Agent(i['hostname'], i['port']);
+            agent.isEnabled = true;
+            agent.id = i['id'];
+            result.push( agent );
+        }
+        return result;
     }
 
     private handleError(error: Response | any) {

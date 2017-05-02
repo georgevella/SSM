@@ -1,7 +1,9 @@
 export class Agent {
-    isEnabled: boolean;
+    public isEnabled: boolean;
 
-    countries: string[];
+    public countries: string[];
+
+    public id: string;
 
     /**
      *

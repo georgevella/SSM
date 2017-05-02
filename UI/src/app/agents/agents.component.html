@@ -20,14 +20,9 @@
         <div class="col-lg-2" *ngFor="let agent of activeAgents">
             <div class="contact-box">
                 <a href="#">
-                  <strong>{{agent.hostname}}</strong>
-                  <p><i class="fa fa-map-marker"></i> Riviera State 32/106</p>
-                  <address>
-                      <strong>Twitter, Inc.</strong><br>
-                      795 Folsom Ave, Suite 600<br>
-                      San Francisco, CA 94107<br>
-                      <abbr title="Phone">P:</abbr> (123) 456-7890
-                  </address>
+                  <p><strong>{{agent.hostname}}</strong></p>
+                  <p><small>{{agent.id}}</small></p>
+                  <p><i class="fa fa-map-marker"></i> Riviera State 32/106</p>                  
                   <div class="clearfix"></div>
                 </a>
             </div>
