@@ -1,0 +1,38 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>Contacts</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                App Views
+            </li>
+            <li class="active">
+                <strong>Contacts</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+
+        <div class="col-lg-2" *ngFor="let agent of activeAgents">
+            <div class="contact-box">
+                <a href="#">
+                  <strong>{{agent.hostname}}</strong>
+                  <p><i class="fa fa-map-marker"></i> Riviera State 32/106</p>
+                  <address>
+                      <strong>Twitter, Inc.</strong><br>
+                      795 Folsom Ave, Suite 600<br>
+                      San Francisco, CA 94107<br>
+                      <abbr title="Phone">P:</abbr> (123) 456-7890
+                  </address>
+                  <div class="clearfix"></div>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

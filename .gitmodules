@@ -1,0 +1,3 @@
+[submodule "submodules/glydesdk"]
+	path = submodules/glydesdk
+	url = https://github.com/georgevella/GlydeSdk.git

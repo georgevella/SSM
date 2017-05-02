@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  sitespeedcontroller.master:
+    image: sitespeedcontroller.master
+    build:
+      context: D:\Sources\dev\tools\SiteSpeedController\SiteSpeedController.Master
+      dockerfile: Dockerfile
