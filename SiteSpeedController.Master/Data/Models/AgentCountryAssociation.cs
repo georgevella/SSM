@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using SiteSpeedController.Master.Data.Contracts;
 
 namespace SiteSpeedController.Master.Data.Models
 {
     [Table("agentCountries")]
-    public class AgentCountryAssociation
+    public class AgentCountryAssociation : ICountryAssociation
     {
         [Column("agentId")]
         public int AgentId { get; set; }
@@ -12,5 +13,11 @@ namespace SiteSpeedController.Master.Data.Models
         [Column("countryId")]
         public string CountryId { get; set; }
         public CountryDao Country { get; set; }
+
+        int ICountryAssociation.OwnerId
+        {
+            get { return AgentId; }
+            set { AgentId = value; }
+        }
     }
 }

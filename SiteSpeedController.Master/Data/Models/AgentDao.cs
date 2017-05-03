@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using SiteSpeedController.Master.Data.Contracts;
 
 namespace SiteSpeedController.Master.Data.Models
 {
     [Table("agents")]
-    public class AgentDao
+    public class AgentDao : ICountryListContainer<AgentCountryAssociation>
     {
         [Column("id")]
         [Key]
@@ -31,9 +32,6 @@ namespace SiteSpeedController.Master.Data.Models
         [Column("port")]
         [Required]
         public int Port { get; set; }
-
-        [Column("jobsRun")]
-        public int JobsExecuted { get; set; }
 
         [Column("isApproved")]
         public bool IsApproved { get; set; }

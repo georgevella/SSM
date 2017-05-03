@@ -98,7 +98,7 @@ namespace SiteSpeedController.Master.Controllers.V1
             if (!_scheduler.IsStarted)
                 await _scheduler.Start();
 
-            return new CreateResourceResult<string>(true, id);
+            return Created(id);
         }
     }
 }

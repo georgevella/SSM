@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using SiteSpeedController.Master.Data.Contracts;
 
 namespace SiteSpeedController.Master.Data.Models
 {
     [Table("pages")]
-    public class PageDao
+    public class PageDao : ICountryListContainer<PageCountryAssociation>
     {
         [Key]
         [Column("id")]
@@ -17,8 +18,15 @@ namespace SiteSpeedController.Master.Data.Models
         [Column("alias")]
         public string Alias { get; set; }
 
-        [Column("runs")]
-        public int RunsTriggered { get; set; }
+        [Column("isEnabled")]
+        public bool IsEnabled { get; set; }
+
+        [Column("overridesCountryList")]
+        public bool OverridesSiteCountryList { get; set; }
+
+        [Column("siteId")]
+        public int SiteId { get; set; }
+        public SiteDao Site { get; set; }
 
         public List<PageCountryAssociation> Countries { get; set; } = new List<PageCountryAssociation>();
     }
