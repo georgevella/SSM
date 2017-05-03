@@ -2,12 +2,12 @@
 
 namespace SiteSpeedController.Master.Data.Models
 {
-    [Table("agentCountries")]
-    public class AgentCountryAssociation
+    [Table("pageCountries")]
+    public class PageCountryAssociation
     {
-        [Column("agentId")]
-        public int AgentId { get; set; }
-        public AgentDao Agent { get; set; }
+        [Column("pageId")]
+        public int PageId { get; set; }
+        public PageDao Page { get; set; }
 
         [Column("countryId")]
         public string CountryId { get; set; }

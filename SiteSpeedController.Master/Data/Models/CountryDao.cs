@@ -10,6 +10,8 @@ namespace SiteSpeedController.Master.Data.Models
         [Key]
         public string Id { get; set; }
 
+        [Column("name")]
+
         public string Name { get; set; }
     }
 }
