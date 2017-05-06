@@ -2,7 +2,7 @@
 <Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
   <PropertyGroup Label="Globals">
     <ProjectGuid>d96fd300-94b4-43a0-bbb4-35010d402322</ProjectGuid>
-    <DockerServiceUrl>http://localhost:{ServicePort}/api/values</DockerServiceUrl>
+    <DockerServiceUrl>http://localhost:8080/</DockerServiceUrl>
     <DockerServiceName>ssmmaster</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

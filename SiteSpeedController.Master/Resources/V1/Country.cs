@@ -6,5 +6,7 @@ namespace SiteSpeedController.Master.Resources.V1
     public class Country : Resource<string>
     {
         public string DisplayName { get; set; }
+
+        public bool IsEnabled { get; set; }
     }
 }

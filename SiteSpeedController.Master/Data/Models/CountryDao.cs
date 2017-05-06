@@ -13,5 +13,8 @@ namespace SiteSpeedController.Master.Data.Models
         [Column("name")]
 
         public string Name { get; set; }
+
+        [Column("isDisabled")]
+        public bool IsEnabled { get; set; }
     }
 }

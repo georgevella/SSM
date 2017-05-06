@@ -60,10 +60,14 @@ namespace SiteSpeedController.Master.Controllers.V1
 
         public override async Task<CreateResourceResult<string>> Create(Country resource)
         {
+            if (_dataContext.Countries.Any(c => c.Id == resource.Id || c.Name == resource.DisplayName))
+                return AlreadyExists();
+
             var result = await _dataContext.Countries.AddAsync(new CountryDao()
             {
                 Id = resource.Id,
-                Name = resource.DisplayName
+                Name = resource.DisplayName,
+                IsEnabled = resource.IsEnabled
             });
 
             _dataContext.SaveChanges();
