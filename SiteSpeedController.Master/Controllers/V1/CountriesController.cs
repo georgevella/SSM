@@ -27,7 +27,8 @@ namespace SiteSpeedController.Master.Controllers.V1
                     .Select(dao => new Country()
                     {
                         Id = dao.Id,
-                        DisplayName = dao.Name
+                        DisplayName = dao.Name,
+                        IsEnabled = dao.IsEnabled
                     }).ToList()
             );
         }
@@ -40,7 +41,8 @@ namespace SiteSpeedController.Master.Controllers.V1
             return new Country()
             {
                 Id = dao.Id,
-                DisplayName = dao.Name
+                DisplayName = dao.Name,
+                IsEnabled = dao.IsEnabled
             };
         }
 
@@ -52,6 +54,9 @@ namespace SiteSpeedController.Master.Controllers.V1
                 return false;
 
             dao.Name = resource.DisplayName;
+            dao.IsEnabled = resource.IsEnabled;
+
+            _dataContext.Countries.Update(dao);
 
             await Task.Run(() => _dataContext.SaveChanges());
 

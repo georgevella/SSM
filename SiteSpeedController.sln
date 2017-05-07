@@ -41,11 +41,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteSpeedController.Master"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D96FD300-94B4-43A0-BBB4-35010D402322}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "general", "general", "{09B08262-400E-4709-AEB0-B718C22AFDB1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "appsupport", "appsupport", "{09B08262-400E-4709-AEB0-B718C22AFDB1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Data", "submodules\glydesdk\src\Glyde.Data\Glyde.Data.csproj", "{21CD366D-9F40-4703-A572-2F508F62B934}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Data.EfCore", "submodules\glydesdk\src\Glyde.Data.EfCore\Glyde.Data.EfCore.csproj", "{BDF5EDFC-86FD-471C-A642-7A9CA7C7497A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glyde.ApplicationSupport", "submodules\glydesdk\src\Glyde.ApplicationSupport\Glyde.ApplicationSupport.csproj", "{3B07D245-7F99-4BEA-986B-BECEFB920EFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteSpeedManager.Models", "SiteSpeedManager.Models\SiteSpeedManager.Models.csproj", "{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +109,14 @@ Global
 		{BDF5EDFC-86FD-471C-A642-7A9CA7C7497A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDF5EDFC-86FD-471C-A642-7A9CA7C7497A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDF5EDFC-86FD-471C-A642-7A9CA7C7497A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B07D245-7F99-4BEA-986B-BECEFB920EFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B07D245-7F99-4BEA-986B-BECEFB920EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B07D245-7F99-4BEA-986B-BECEFB920EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B07D245-7F99-4BEA-986B-BECEFB920EFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,5 +140,6 @@ Global
 		{09B08262-400E-4709-AEB0-B718C22AFDB1} = {1EF33406-6674-473D-A7F9-3707028CB6B5}
 		{21CD366D-9F40-4703-A572-2F508F62B934} = {7A8E1E64-5EC1-4B37-8447-4BC73AB81B4F}
 		{BDF5EDFC-86FD-471C-A642-7A9CA7C7497A} = {7A8E1E64-5EC1-4B37-8447-4BC73AB81B4F}
+		{3B07D245-7F99-4BEA-986B-BECEFB920EFF} = {09B08262-400E-4709-AEB0-B718C22AFDB1}
 	EndGlobalSection
 EndGlobal
