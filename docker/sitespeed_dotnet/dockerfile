@@ -1,0 +1,17 @@
+FROM sitespeedio/sitespeed.io:5.0.0
+
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends apt-transport-https ca-certificates curl unzip
+ 
+RUN sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+RUN apt-get update
+
+RUN apt-get install -y --no-install-recommends dotnet-dev-1.0.3 && rm -rf /var/lib/apt/lists/*
+
+RUN curl -sSL https://raw.githubusercontent.com/Microsoft/MIEngine/getclrdbg-release/scripts/GetClrDbg.sh | bash /dev/stdin latest /clrdbg    
+RUN curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /clrdbg/vsdbg
+
+WORKDIR /app
+
+ENTRYPOINT ["bash"]
