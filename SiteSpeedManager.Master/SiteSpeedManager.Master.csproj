@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <AssemblyName>ssmmaster</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

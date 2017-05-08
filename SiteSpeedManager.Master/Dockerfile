@@ -3,4 +3,4 @@ ARG source
 WORKDIR /app
 EXPOSE 80
 COPY ${source:-obj/Docker/publish} .
-ENTRYPOINT ["dotnet", "SiteSpeedController.Master.dll"]
+ENTRYPOINT ["dotnet", "SiteSpeedManager.Master.dll"]
