@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
   <PropertyGroup Label="Globals">
-    <ProjectGuid>d96fd300-94b4-43a0-bbb4-35010d402322</ProjectGuid>
+    <ProjectGuid>2e6e63e2-18a2-478e-a769-b19e7c6d29c4</ProjectGuid>
     <DockerServiceUrl>http://localhost:8080/</DockerServiceUrl>
     <DockerServiceName>ssmmaster</DockerServiceName>
   </PropertyGroup>

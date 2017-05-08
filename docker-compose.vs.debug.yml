@@ -10,8 +10,9 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - AWS_ACCESSKEY=${AWS_ACCESSKEY}
       - AWS_SECRETKEY=${AWS_SECRETKEY}
+      #- COREHOST_TRACE=1
     volumes:
-      - ./SiteSpeedController.Master:/app
+      - ./SiteSpeedManager.Master:/app
       - ~/.nuget/packages:/root/.nuget/packages:ro
       - ~/clrdbg:/clrdbg:ro
     entrypoint: tail -f /dev/null

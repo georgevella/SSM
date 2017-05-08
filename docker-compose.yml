@@ -10,7 +10,7 @@ services:
     image: sitespeedmanager/master
     network_mode: bridge
     build:
-      context: .\SiteSpeedController.Master
+      context: .\SiteSpeedManager.Master
       dockerfile: Dockerfile
 
   ssmui:
