@@ -4,6 +4,7 @@
     <ProjectGuid>2e6e63e2-18a2-478e-a769-b19e7c6d29c4</ProjectGuid>
     <DockerServiceUrl>http://localhost:8080/</DockerServiceUrl>
     <DockerServiceName>ssmmaster</DockerServiceName>
+    <DockerLaunchBrowser>True</DockerLaunchBrowser>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.ci.build.yml" />

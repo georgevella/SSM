@@ -33,3 +33,10 @@ services:
       - 8080:80
     expose: 
       - 8080
+  
+  ssmagent1:
+    image: sitespeedmanager/agent
+    network_mode: bridge    
+    build:
+      context: ./SiteSpeedManager.Agent
+      dockerfile: Dockerfile

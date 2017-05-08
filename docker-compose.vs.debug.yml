@@ -18,3 +18,20 @@ services:
     entrypoint: tail -f /dev/null
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=linux"
+
+  ssmagent1:
+    image: sitespeedmanager/agent:dev
+    build:
+      args:
+        source: ${DOCKER_BUILD_SOURCE}
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - AWS_ACCESSKEY=${AWS_ACCESSKEY}
+      - AWS_SECRETKEY=${AWS_SECRETKEY}
+    volumes:
+      - ./SiteSpeedManager.Agent:/app
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+      - ~/clrdbg:/clrdbg:ro
+    entrypoint: tail -f /dev/null
+    labels:
+      - "com.microsoft.visualstudio.targetoperatingsystem=linux"
