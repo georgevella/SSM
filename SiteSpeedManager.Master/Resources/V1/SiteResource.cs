@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Glyde.Web.Api.Resources;
 
-namespace SiteSpeedController.Master.Resources.V1
+namespace SiteSpeedManager.Master.Resources.V1
 {
     [Resource("sites")]
     public class SiteResource : Resource<int>

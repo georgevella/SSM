@@ -1,4 +1,4 @@
-namespace SiteSpeedController.Master.Data.Models
+namespace SiteSpeedManager.Master.Data.Models
 {
     public enum DataStoreType
     {

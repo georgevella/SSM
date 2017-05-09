@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SiteSpeedController.Master.Migrations
+namespace SiteSpeedManager.Master.Migrations
 {
     public partial class Initial : Migration
     {

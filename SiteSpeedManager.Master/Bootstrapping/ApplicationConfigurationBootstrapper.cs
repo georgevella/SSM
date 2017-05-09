@@ -1,8 +1,8 @@
 ﻿using Glyde.ApplicationSupport.ApplicationConfiguration;
 using Glyde.Configuration;
-using SiteSpeedController.Master.Services.Startup;
+using SiteSpeedManager.Master.Services.Startup;
 
-namespace SiteSpeedController.Master.Bootstrapping
+namespace SiteSpeedManager.Master.Bootstrapping
 {
     public class ApplicationConfigurationBootstrapper : IApplicationConfigurationBootstrapper
     {

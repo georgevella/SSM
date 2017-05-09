@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 using Amazon.SQS;
 using NLog;
 using Quartz;
-using SiteSpeedController.Master.Services.Jobs;
-using SiteSpeedController.Master.Services.Transport;
+using SiteSpeedManager.Master.Services.Jobs;
+using SiteSpeedManager.Master.Services.Transport;
 using SiteSpeedManager.Models.SiteSpeed;
 
-namespace SiteSpeedController.Master.Jobs
+namespace SiteSpeedManager.Master.Jobs
 {
     public class SiteSpeedJob : IJob
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Glyde.Web.Api.Resources;
 
-namespace SiteSpeedController.Master.Resources.V1
+namespace SiteSpeedManager.Master.Resources.V1
 {
     [Resource("agents")]
     public class Agent : Resource<Guid>
@@ -13,6 +13,6 @@ namespace SiteSpeedController.Master.Resources.V1
 
         public bool IsEnabled { get; set; }
 
-        public IEnumerable<string> Countries { get; set; } = new string[] {};
+        public IEnumerable<string> Countries { get; set; } = new string[] { };
     }
 }

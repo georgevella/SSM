@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SiteSpeedController.Master.Data.Models;
+using SiteSpeedManager.Master.Data.Models;
 
-namespace SiteSpeedController.Master.Data
+namespace SiteSpeedManager.Master.Data
 {
     public class DataContext : DbContext
     {

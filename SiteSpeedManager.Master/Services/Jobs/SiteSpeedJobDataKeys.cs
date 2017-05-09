@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SiteSpeedController.Master.Services.Jobs
+﻿namespace SiteSpeedManager.Master.Services.Jobs
 {
     public static class SiteSpeedJobDataKeys
     {

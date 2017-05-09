@@ -1,27 +1,21 @@
 ﻿using System;
-using System.Linq;
-using System.Reflection;
 using Amazon.Runtime;
-using Amazon.SimpleNotificationService;
 using Amazon.SQS;
-using Amazon.SQS.Model;
 using Glyde.Configuration;
 using Glyde.Di;
-using Microsoft.AspNetCore.Server.Kestrel.Internal.Networking;
 using NLog;
 using NLog.Config;
 using NLog.Targets;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
-using SimpleInjector;
-using SiteSpeedController.Master.Abstractions;
-using SiteSpeedController.Master.Data;
-using SiteSpeedController.Master.Services.Jobs;
-using SiteSpeedController.Master.Services.Transport;
+using SiteSpeedManager.Master.Abstractions;
+using SiteSpeedManager.Master.Data;
+using SiteSpeedManager.Master.Services.Jobs;
+using SiteSpeedManager.Master.Services.Transport;
 using SiteSpeedManager.Models.SiteSpeed;
 
-namespace SiteSpeedController.Master.Bootstrapping
+namespace SiteSpeedManager.Master.Bootstrapping
 {
     public class DependencyInjectionBootstrapper : IDependencyInjectionBootstrapper
     {

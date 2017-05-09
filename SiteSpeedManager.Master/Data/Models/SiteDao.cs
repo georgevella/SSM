@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using SiteSpeedController.Master.Data.Contracts;
+using SiteSpeedManager.Master.Data.Contracts;
 
-namespace SiteSpeedController.Master.Data.Models
+namespace SiteSpeedManager.Master.Data.Models
 {
     [Table("sites")]
     public class SiteDao : ICountryListContainer<SiteCountryAssociation>

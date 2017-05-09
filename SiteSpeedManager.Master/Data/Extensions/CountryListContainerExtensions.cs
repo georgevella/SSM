@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SiteSpeedController.Master.Data.Contracts;
-using SiteSpeedController.Master.Data.Models;
+using SiteSpeedManager.Master.Data.Contracts;
 
-namespace SiteSpeedController.Master.Data.Extensions
+namespace SiteSpeedManager.Master.Data.Extensions
 {
     public static class CountryListContainerExtensions
     {

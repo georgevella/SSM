@@ -1,10 +1,9 @@
 ﻿using System.IO;
-using Amazon.SQS.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace SiteSpeedController.Master.Services.Transport
+namespace SiteSpeedManager.Master.Services.Transport
 {
     public interface IMessageSerializer<in TContent>
     {

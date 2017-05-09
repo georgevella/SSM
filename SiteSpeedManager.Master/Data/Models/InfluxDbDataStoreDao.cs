@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SiteSpeedController.Master.Data.Models
+namespace SiteSpeedManager.Master.Data.Models
 {
     public class InfluxDbDataStoreDao : DataStoreDao
     {

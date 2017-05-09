@@ -1,7 +1,7 @@
 ﻿using System;
 using Glyde.Web.Api.Resources;
 
-namespace SiteSpeedController.Master.Resources.V1
+namespace SiteSpeedManager.Master.Resources.V1
 {
     [Resource("jobs")]
     public class SiteSpeedJobResource : Resource<string>

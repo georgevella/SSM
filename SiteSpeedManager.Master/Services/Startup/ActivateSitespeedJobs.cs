@@ -1,20 +1,12 @@
 ﻿using System;
-using System.IO;
 using System.Threading.Tasks;
-using Amazon.SQS;
-using Amazon.SQS.Model;
 using Glyde.ApplicationSupport.ApplicationStartup;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
-using Quartz;
-using SiteSpeedController.Master.Data;
-using SiteSpeedController.Master.Services.Jobs;
-using SiteSpeedController.Master.Services.Transport;
+using SiteSpeedManager.Master.Data;
+using SiteSpeedManager.Master.Services.Jobs;
 using SiteSpeedManager.Models.SiteSpeed;
 
-namespace SiteSpeedController.Master.Services.Startup
+namespace SiteSpeedManager.Master.Services.Startup
 {
     public class ActivateSitespeedJobs : IRunOnStartup
     {

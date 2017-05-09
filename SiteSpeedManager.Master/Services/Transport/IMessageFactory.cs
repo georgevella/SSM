@@ -1,15 +1,9 @@
-﻿using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using Glyde.Configuration;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
 
-namespace SiteSpeedController.Master.Services.Transport
+namespace SiteSpeedManager.Master.Services.Transport
 {
     public interface IMessageFactory<in TContent>
     {

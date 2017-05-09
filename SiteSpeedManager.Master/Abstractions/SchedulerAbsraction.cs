@@ -5,7 +5,7 @@ using Quartz;
 using Quartz.Impl.Matchers;
 using Quartz.Spi;
 
-namespace SiteSpeedController.Master.Abstractions
+namespace SiteSpeedManager.Master.Abstractions
 {
     public class SchedulerAbsraction : IScheduler
     {

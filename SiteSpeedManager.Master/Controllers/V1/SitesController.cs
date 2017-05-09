@@ -4,14 +4,12 @@ using System.Threading.Tasks;
 using Glyde.Web.Api.Controllers;
 using Glyde.Web.Api.Controllers.Results;
 using Microsoft.EntityFrameworkCore;
-using Quartz.Util;
-using SiteSpeedController.Master.Data;
-using SiteSpeedController.Master.Data.Contracts;
-using SiteSpeedController.Master.Data.Extensions;
-using SiteSpeedController.Master.Data.Models;
-using SiteSpeedController.Master.Resources.V1;
+using SiteSpeedManager.Master.Data;
+using SiteSpeedManager.Master.Data.Extensions;
+using SiteSpeedManager.Master.Data.Models;
+using SiteSpeedManager.Master.Resources.V1;
 
-namespace SiteSpeedController.Master.Controllers.V1
+namespace SiteSpeedManager.Master.Controllers.V1
 {
     public class SitesController : ApiController<SiteResource, int>
     {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using SiteSpeedController.Master.Data.Contracts;
+using SiteSpeedManager.Master.Data.Contracts;
 
-namespace SiteSpeedController.Master.Data.Models
+namespace SiteSpeedManager.Master.Data.Models
 {
     [Table("agentCountries")]
     public class AgentCountryAssociation : ICountryAssociation

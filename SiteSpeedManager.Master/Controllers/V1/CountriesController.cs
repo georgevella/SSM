@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Glyde.Web.Api.Controllers;
 using Glyde.Web.Api.Controllers.Results;
-using Microsoft.AspNetCore.Http.Features;
-using SiteSpeedController.Master.Data;
-using SiteSpeedController.Master.Data.Models;
-using SiteSpeedController.Master.Resources.V1;
+using SiteSpeedManager.Master.Data;
+using SiteSpeedManager.Master.Data.Models;
+using SiteSpeedManager.Master.Resources.V1;
 
-namespace SiteSpeedController.Master.Controllers.V1
+namespace SiteSpeedManager.Master.Controllers.V1
 {
     public class CountriesController : ApiController<Country, string>
     {

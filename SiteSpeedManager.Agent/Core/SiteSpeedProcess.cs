@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace SiteSpeedController.Agent.Core
+namespace SiteSpeedManager.Agent.Core
 {
     public class SiteSpeedProcess : ISiteSpeedProcess
     {
@@ -34,13 +34,13 @@ namespace SiteSpeedController.Agent.Core
 
         private void ProcessOnExited(object sender, EventArgs eventArgs)
         {
-            
+
         }
 
         public async Task Run()
         {
             _neverStarted = false;
-            await Task.Run( () => _process.Start());
+            await Task.Run(() => _process.Start());
         }
     }
 

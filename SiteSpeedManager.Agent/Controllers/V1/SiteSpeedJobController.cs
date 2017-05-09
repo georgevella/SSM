@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using Glyde.Web.Api.Controllers;
 using Glyde.Web.Api.Controllers.Results;
-using SiteSpeedController.Agent.Core;
-using SiteSpeedController.Agent.Resources.V1;
+using SiteSpeedManager.Agent.Core;
+using SiteSpeedManager.Agent.Resources.V1;
 
-namespace SiteSpeedController.Agent.Controllers.V1
+namespace SiteSpeedManager.Agent.Controllers.V1
 {
     public class SiteSpeedJobController : ApiController<SiteSpeedJob, Guid>
     {

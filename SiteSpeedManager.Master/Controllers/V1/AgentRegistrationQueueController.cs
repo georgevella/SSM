@@ -6,11 +6,11 @@ using Glyde.Web.Api.Controllers;
 using Glyde.Web.Api.Controllers.Results;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
-using SiteSpeedController.Master.Data;
-using SiteSpeedController.Master.Data.Models;
-using SiteSpeedController.Master.Resources.V1;
+using SiteSpeedManager.Master.Data;
+using SiteSpeedManager.Master.Data.Models;
+using SiteSpeedManager.Master.Resources.V1;
 
-namespace SiteSpeedController.Master.Controllers.V1
+namespace SiteSpeedManager.Master.Controllers.V1
 {
     public class AgentRegistrationQueueController : ApiController<AgentRegistrationQueue, Guid>
     {
@@ -55,7 +55,7 @@ namespace SiteSpeedController.Master.Controllers.V1
 
         public override async Task<bool> Update(Guid id, AgentRegistrationQueue resource)
         {
-            var agent = await Task.Run( () => _dataContext.Agents.FirstOrDefault(r => !r.IsApproved && r.HostIdentifier == id));
+            var agent = await Task.Run(() => _dataContext.Agents.FirstOrDefault(r => !r.IsApproved && r.HostIdentifier == id));
 
             if (agent == null)
                 return false;
@@ -68,7 +68,7 @@ namespace SiteSpeedController.Master.Controllers.V1
 
             agent.IsApproved = resource.Status == AgentRegistrationStatus.Approved;
 
-            await Task.Run( () => _dataContext.SaveChanges());
+            await Task.Run(() => _dataContext.SaveChanges());
 
             return true;
         }

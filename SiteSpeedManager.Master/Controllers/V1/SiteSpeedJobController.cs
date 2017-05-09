@@ -6,10 +6,10 @@ using Glyde.Web.Api.Controllers;
 using Glyde.Web.Api.Controllers.Results;
 using Quartz;
 using Quartz.Impl.Matchers;
-using SiteSpeedController.Master.Jobs;
-using SiteSpeedController.Master.Resources.V1;
+using SiteSpeedManager.Master.Jobs;
+using SiteSpeedManager.Master.Resources.V1;
 
-namespace SiteSpeedController.Master.Controllers.V1
+namespace SiteSpeedManager.Master.Controllers.V1
 {
     public class SiteSpeedJobController : ApiController<SiteSpeedJobResource, string>
     {

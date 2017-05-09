@@ -3,10 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using SiteSpeedController.Master.Data;
-using SiteSpeedController.Master.Data.Models;
+using SiteSpeedManager.Master.Data;
 
-namespace SiteSpeedController.Master.Migrations
+namespace SiteSpeedManager.Master.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20170506184029_Initial")]

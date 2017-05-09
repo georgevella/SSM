@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SiteSpeedController.Master.Resources.V1;
 using Glyde.Web.Api.Controllers;
-using Glyde.Web.Api.Controllers.Results;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
-using SiteSpeedController.Master.Data;
-using SiteSpeedController.Master.Data.Models;
+using SiteSpeedManager.Master.Data;
+using SiteSpeedManager.Master.Data.Models;
+using SiteSpeedManager.Master.Resources.V1;
 
-
-namespace SiteSpeedController.Master.Controllers.V1
+namespace SiteSpeedManager.Master.Controllers.V1
 {
     public class AgentsController : ApiController<Agent, Guid>
     {
@@ -26,13 +22,13 @@ namespace SiteSpeedController.Master.Controllers.V1
         public override async Task<IEnumerable<Agent>> GetAll()
         {
             return await Task.Run<IEnumerable<Agent>>(() =>
-                _dataContext.Agents.Where( a => a.IsApproved ).Select(dao => new Agent()
+                _dataContext.Agents.Where(a => a.IsApproved).Select(dao => new Agent()
                 {
                     Id = dao.HostIdentifier,
                     Hostname = dao.Hostname,
                     Port = dao.Port,
                     IsEnabled = !dao.IsDisabled,
-                    Countries = dao.Countries.Select( x=>x.Country.Id )
+                    Countries = dao.Countries.Select(x => x.Country.Id)
                 }).ToList()
             );
         }
@@ -55,7 +51,7 @@ namespace SiteSpeedController.Master.Controllers.V1
 
         public override async Task<bool> Update(Guid id, Agent resource)
         {
-            var dao = await _dataContext.Agents.Include( x=>x.Countries )
+            var dao = await _dataContext.Agents.Include(x => x.Countries)
                 .FirstOrDefaultAsync(a => a.IsApproved && a.HostIdentifier == id);
 
             dao.Hostname = resource.Hostname;
@@ -64,7 +60,7 @@ namespace SiteSpeedController.Master.Controllers.V1
             dao.LastUpdated = DateTime.Now;
 
             // update country list
-            var incomingListOfCountries = _dataContext.Countries.Where(c => resource.Countries.Contains(c.Id)).ToDictionary( x=>x.Id);
+            var incomingListOfCountries = _dataContext.Countries.Where(c => resource.Countries.Contains(c.Id)).ToDictionary(x => x.Id);
 
             if (dao.Countries == null)
                 dao.Countries = new List<AgentCountryAssociation>();

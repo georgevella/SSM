@@ -1,8 +1,8 @@
 ﻿using Glyde.Configuration;
 using Glyde.Di;
-using SiteSpeedController.Agent.Core;
+using SiteSpeedManager.Agent.Core;
 
-namespace SiteSpeedController.Agent.Bootstrapping
+namespace SiteSpeedManager.Agent.Bootstrapping
 {
     public class DependencyInjectionBootstrapping : IDependencyInjectionBootstrapper
     {

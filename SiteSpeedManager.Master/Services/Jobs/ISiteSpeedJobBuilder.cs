@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using NLog;
 using Quartz;
-using SiteSpeedController.Master.Jobs;
+using SiteSpeedManager.Master.Jobs;
 using SiteSpeedManager.Models.SiteSpeed;
 
-namespace SiteSpeedController.Master.Services.Jobs
+namespace SiteSpeedManager.Master.Services.Jobs
 {
     public interface ISiteSpeedJobBuilder
     {

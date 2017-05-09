@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using SiteSpeedController.Master.Data.Models;
+using SiteSpeedManager.Master.Data.Models;
 
-namespace SiteSpeedController.Master.Data.Contracts
+namespace SiteSpeedManager.Master.Data.Contracts
 {
     public interface ICountryListContainer<TCountryAssociation>
     {
