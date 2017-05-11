@@ -1,0 +1,17 @@
+{
+  "agent": {
+    "hostname": "localhost",
+    "port": 61959,
+    "id": "BFDD8C3B-2FD9-474F-B60C-C07E3E91CE78"
+  },
+  "apiclient": {
+    "KnownResources": [
+      {
+        "ResourceNames": [
+          "agent-registration-queue"
+        ],
+        "BaseAddress": "http://localhost.fiddler:55297/"
+      }
+    ]
+  }
+}

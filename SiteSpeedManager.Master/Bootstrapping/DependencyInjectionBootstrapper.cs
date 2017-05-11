@@ -68,7 +68,7 @@ namespace SiteSpeedManager.Master.Bootstrapping
             var consoleTarget = new ColoredConsoleTarget();
             config.AddTarget("console", consoleTarget);
             // Step 3. Set target properties 
-            consoleTarget.Layout = @"APP: ${date:format=HH\:mm\:ss} ${level} ${message}";
+            consoleTarget.Layout = @"MASTER: ${date:format=HH\:mm\:ss} ${level} ${message}";
 
             // Step 4. Define rules
             var rule1 = new LoggingRule("*", LogLevel.Debug, consoleTarget);
