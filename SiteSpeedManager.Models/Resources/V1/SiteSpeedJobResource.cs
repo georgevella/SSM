@@ -1,7 +1,7 @@
 ﻿using System;
 using Glyde.Web.Api.Resources;
 
-namespace SiteSpeedManager.Master.Resources.V1
+namespace SiteSpeedManager.Models.Resources.V1
 {
     [Resource("jobs")]
     public class SiteSpeedJobResource : Resource<string>
@@ -12,6 +12,6 @@ namespace SiteSpeedManager.Master.Resources.V1
 
         public string Crontab { get; set; }
 
-        public DateTime NextExecutionTime { get; internal set; }
+        public DateTime NextExecutionTime { get; set; }
     }
 }

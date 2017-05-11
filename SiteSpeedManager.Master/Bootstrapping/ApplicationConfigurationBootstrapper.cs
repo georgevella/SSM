@@ -6,7 +6,7 @@ namespace SiteSpeedManager.Master.Bootstrapping
 {
     public class ApplicationConfigurationBootstrapper : IApplicationConfigurationBootstrapper
     {
-        public void RegisterApplicationStartupService(IApplicationConfigurationBuilder applicationConfigurationBuilder,
+        public void RegisterApplicationServices(IApplicationConfigurationBuilder applicationConfigurationBuilder,
             IConfigurationService configurationService)
         {
             applicationConfigurationBuilder.RegisterStartupService<ActivateSitespeedJobs>();

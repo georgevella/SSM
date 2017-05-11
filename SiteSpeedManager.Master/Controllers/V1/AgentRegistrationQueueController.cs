@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using SiteSpeedManager.Master.Data;
 using SiteSpeedManager.Master.Data.Models;
-using SiteSpeedManager.Master.Resources.V1;
+using SiteSpeedManager.Models.Resources.V1;
 
 namespace SiteSpeedManager.Master.Controllers.V1
 {

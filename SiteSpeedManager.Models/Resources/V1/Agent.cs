@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Glyde.Web.Api.Resources;
 
-namespace SiteSpeedManager.Master.Resources.V1
+namespace SiteSpeedManager.Models.Resources.V1
 {
     [Resource("agents")]
     public class Agent : Resource<Guid>

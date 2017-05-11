@@ -6,7 +6,7 @@ using Glyde.Web.Api.Controllers;
 using Microsoft.EntityFrameworkCore;
 using SiteSpeedManager.Master.Data;
 using SiteSpeedManager.Master.Data.Models;
-using SiteSpeedManager.Master.Resources.V1;
+using SiteSpeedManager.Models.Resources.V1;
 
 namespace SiteSpeedManager.Master.Controllers.V1
 {

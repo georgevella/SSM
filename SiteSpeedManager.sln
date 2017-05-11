@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Di", "submodules\glydesdk\src\Glyde.Di\Glyde.Di.csproj", "{29867091-3AEC-4703-A72D-C9E6030C0A97}"
 EndProject
@@ -50,6 +50,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteSpeedManager.Models", "SiteSpeedManager.Models\SiteSpeedManager.Models.csproj", "{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2E6E63E2-18A2-478E-A769-B19E7C6D29C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.JobScheduler", "submodules\glydesdk\src\Glyde.JobScheduler\Glyde.JobScheduler.csproj", "{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{2E6E63E2-18A2-478E-A769-B19E7C6D29C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E6E63E2-18A2-478E-A769-B19E7C6D29C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E6E63E2-18A2-478E-A769-B19E7C6D29C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,5 +147,6 @@ Global
 		{21CD366D-9F40-4703-A572-2F508F62B934} = {7A8E1E64-5EC1-4B37-8447-4BC73AB81B4F}
 		{BDF5EDFC-86FD-471C-A642-7A9CA7C7497A} = {7A8E1E64-5EC1-4B37-8447-4BC73AB81B4F}
 		{3B07D245-7F99-4BEA-986B-BECEFB920EFF} = {09B08262-400E-4709-AEB0-B718C22AFDB1}
+		{4AD253FF-94B4-4F31-95E0-733A4B1BD11A} = {09B08262-400E-4709-AEB0-B718C22AFDB1}
 	EndGlobalSection
 EndGlobal
