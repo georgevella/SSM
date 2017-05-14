@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using NLog;
+using SiteSpeedManager.Agent.Configuration;
 using SiteSpeedManager.Models.SiteSpeed;
 using SiteSpeedManager.Transport;
 
@@ -14,11 +15,11 @@ namespace SiteSpeedManager.Agent.Services
 {
     public class SiteSpeedProcess : ISiteSpeedProcess
     {
-        private readonly IConfigurationService _configurationService;
         private readonly ILogger _logger;
         private readonly Process _process;
         private bool _neverStarted = true;
         private readonly JsonSerializer _serializer;
+        private readonly AgentConfiguration _agentConfiguration;
 
         public bool IsRunning
         {
@@ -45,11 +46,11 @@ namespace SiteSpeedManager.Agent.Services
                 Formatting = Formatting.Indented
             });
 
-            _configurationService = configurationService;
+            _agentConfiguration = configurationService.Get<AgentConfiguration>();
             _logger = logger;
             _process = new Process()
             {
-                StartInfo = new ProcessStartInfo(@"C:\Program Files (x86)\Nodist\bin\sitespeed.io.cmd")
+                StartInfo = new ProcessStartInfo(_agentConfiguration.SiteSpeed.Command)
                 {
                     UseShellExecute = false,
                 },
@@ -68,7 +69,7 @@ namespace SiteSpeedManager.Agent.Services
                 FileAccess.Write,
                 FileShare.ReadWrite,
                 4096,
-                FileOptions.DeleteOnClose | FileOptions.RandomAccess))
+                FileOptions.None))
             using (var sr = new StreamWriter(file))
             using (var tw = new JsonTextWriter(sr))
             {
@@ -76,15 +77,17 @@ namespace SiteSpeedManager.Agent.Services
                 _serializer.Serialize(tw, jobDetails.Settings);
 
                 tw.Flush();
-
-                _neverStarted = false;
-                _process.StartInfo.Arguments = $"--config {tempFile} {jobDetails.Uri}";
-
-                _logger.Debug($"Starting sitespeedio with arguments [{_process.StartInfo.Arguments}]");
-                _process.Start();
-
-                _process.WaitForExit();
             }
+
+            _neverStarted = false;
+            _process.StartInfo.Arguments = $"{_agentConfiguration.SiteSpeed.PreArguments} --config {tempFile} {_agentConfiguration.SiteSpeed.PostArguments} {jobDetails.Uri}";
+
+            _logger.Debug($"Starting sitespeedio with arguments [{_process.StartInfo.Arguments}]");
+            _process.Start();
+
+            _process.WaitForExit();
+
+            //File.Delete(tempFile);
         }
     }
 

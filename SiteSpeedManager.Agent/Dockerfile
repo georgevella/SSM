@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore:1.1
+FROM georgevella/sitespeed_dotnet:latest
 ARG source
 WORKDIR /app
 EXPOSE 80

@@ -2,7 +2,12 @@
   "agent": {
     "hostname": "localhost",
     "port": 61959,
-    "id": "BFDD8C3B-2FD9-474F-B60C-C07E3E91CE78"
+    "id": "BFDD8C3B-2FD9-474F-B60C-C07E3E91CE78",
+    "sitespeed": {
+      "command": "sitespeed.io.cmd",
+      "preargs": "",
+      "postargs": "" 
+    } 
   },
   "apiclient": {
     "KnownResources": [
