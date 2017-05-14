@@ -1,3 +1,3 @@
 @echo off
 
-docker build -t georgevella/sitespeed_dotnet:latest .
+docker build --no-cache=true -t georgevella/sitespeed_dotnet:latest .
