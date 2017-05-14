@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  sitespeedmanager.agent:
+    image: sitespeedmanager.agent
+    build:
+      context: ./SiteSpeedManager.Agent
+      dockerfile: Dockerfile
