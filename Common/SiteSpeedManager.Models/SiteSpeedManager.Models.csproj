@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\submodules\glydesdk\src\Glyde.Web.Api.Common\Glyde.Web.Api.Common.csproj" />
+    <ProjectReference Include="..\..\submodules\glydesdk\src\Glyde.Web.Api.Common\Glyde.Web.Api.Common.csproj" />
   </ItemGroup>
 
 </Project>

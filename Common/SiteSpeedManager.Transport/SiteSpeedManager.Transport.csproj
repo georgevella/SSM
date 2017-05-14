@@ -11,8 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SiteSpeedManager.Models\SiteSpeedManager.Models.csproj" />
-    <ProjectReference Include="..\submodules\glydesdk\src\Glyde.Configuration\Glyde.Configuration.csproj" />
-    <ProjectReference Include="..\submodules\glydesdk\src\Glyde.Di\Glyde.Di.csproj" />
+    <ProjectReference Include="..\..\submodules\glydesdk\src\Glyde.Configuration\Glyde.Configuration.csproj" />
+    <ProjectReference Include="..\..\submodules\glydesdk\src\Glyde.Di\Glyde.Di.csproj" />
   </ItemGroup>
 
 </Project>

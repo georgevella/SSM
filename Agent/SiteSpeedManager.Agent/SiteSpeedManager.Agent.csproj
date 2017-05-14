@@ -27,10 +27,10 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SiteSpeedManager.Models\SiteSpeedManager.Models.csproj" />
-    <ProjectReference Include="..\SiteSpeedManager.Transport\SiteSpeedManager.Transport.csproj" />
-    <ProjectReference Include="..\submodules\glydesdk\src\Glyde.AspNetCore.Common\Glyde.AspNetCore.Common.csproj" />
-    <ProjectReference Include="..\submodules\glydesdk\src\Glyde.JobScheduler\Glyde.JobScheduler.csproj" />
+    <ProjectReference Include="..\..\Common\SiteSpeedManager.Models\SiteSpeedManager.Models.csproj" />
+    <ProjectReference Include="..\..\Common\SiteSpeedManager.Transport\SiteSpeedManager.Transport.csproj" />
+    <ProjectReference Include="..\..\submodules\glydesdk\src\Glyde.AspNetCore.Common\Glyde.AspNetCore.Common.csproj" />
+    <ProjectReference Include="..\..\submodules\glydesdk\src\Glyde.JobScheduler\Glyde.JobScheduler.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Di", "submodules\glydesdk\src\Glyde.Di\Glyde.Di.csproj", "{29867091-3AEC-4703-A72D-C9E6030C0A97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Di", "..\submodules\glydesdk\src\Glyde.Di\Glyde.Di.csproj", "{29867091-3AEC-4703-A72D-C9E6030C0A97}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Bootstrapper", "submodules\glydesdk\src\Glyde.Bootstrapper\Glyde.Bootstrapper.csproj", "{D62B8F3F-6F3A-4B1B-AC23-DA30150B86DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Bootstrapper", "..\submodules\glydesdk\src\Glyde.Bootstrapper\Glyde.Bootstrapper.csproj", "{D62B8F3F-6F3A-4B1B-AC23-DA30150B86DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Configuration", "submodules\glydesdk\src\Glyde.Configuration\Glyde.Configuration.csproj", "{32A12279-2325-4F84-B451-3C920CFBBC6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Configuration", "..\submodules\glydesdk\src\Glyde.Configuration\Glyde.Configuration.csproj", "{32A12279-2325-4F84-B451-3C920CFBBC6E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Di.SimpleInjector", "submodules\glydesdk\src\Glyde.Di.SimpleInjector\Glyde.Di.SimpleInjector.csproj", "{6C9E2D10-BFE6-4291-A482-D205FEE6D44C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Di.SimpleInjector", "..\submodules\glydesdk\src\Glyde.Di.SimpleInjector\Glyde.Di.SimpleInjector.csproj", "{6C9E2D10-BFE6-4291-A482-D205FEE6D44C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.NoSql.AzureTables", "submodules\glydesdk\src\Glyde.NoSql.AzureTables\Glyde.NoSql.AzureTables.csproj", "{5BFCD702-9E7D-4809-8C42-59044CEC23B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.NoSql.AzureTables", "..\submodules\glydesdk\src\Glyde.NoSql.AzureTables\Glyde.NoSql.AzureTables.csproj", "{5BFCD702-9E7D-4809-8C42-59044CEC23B6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Web.Api.Common", "submodules\glydesdk\src\Glyde.Web.Api.Common\Glyde.Web.Api.Common.csproj", "{160C134D-2B73-4DEE-B20E-10407B6FD806}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Web.Api.Common", "..\submodules\glydesdk\src\Glyde.Web.Api.Common\Glyde.Web.Api.Common.csproj", "{160C134D-2B73-4DEE-B20E-10407B6FD806}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.AspNetCore.Common", "submodules\glydesdk\src\Glyde.AspNetCore.Common\Glyde.AspNetCore.Common.csproj", "{8F803EE6-F663-428C-975A-131059541E9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.AspNetCore.Common", "..\submodules\glydesdk\src\Glyde.AspNetCore.Common\Glyde.AspNetCore.Common.csproj", "{8F803EE6-F663-428C-975A-131059541E9F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "asp.net_core", "asp.net_core", "{814B8B77-9024-454B-986A-5E43FE352B27}"
 EndProject
@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bootstrapping", "bootstrapp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configuration", "configuration", "{9A2404AE-0E7C-424A-85D1-5097B4396DC0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.NoSql", "submodules\glydesdk\src\Glyde.NoSql\Glyde.NoSql.csproj", "{DF98D8EA-DEC9-4942-A7F7-717472733A13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.NoSql", "..\submodules\glydesdk\src\Glyde.NoSql\Glyde.NoSql.csproj", "{DF98D8EA-DEC9-4942-A7F7-717472733A13}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "glydesdk", "glydesdk", "{1EF33406-6674-473D-A7F9-3707028CB6B5}"
 EndProject
@@ -39,17 +39,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSpeedManager.Agent", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "appsupport", "appsupport", "{09B08262-400E-4709-AEB0-B718C22AFDB1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Data", "submodules\glydesdk\src\Glyde.Data\Glyde.Data.csproj", "{21CD366D-9F40-4703-A572-2F508F62B934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Data", "..\submodules\glydesdk\src\Glyde.Data\Glyde.Data.csproj", "{21CD366D-9F40-4703-A572-2F508F62B934}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Data.EfCore", "submodules\glydesdk\src\Glyde.Data.EfCore\Glyde.Data.EfCore.csproj", "{BDF5EDFC-86FD-471C-A642-7A9CA7C7497A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Data.EfCore", "..\submodules\glydesdk\src\Glyde.Data.EfCore\Glyde.Data.EfCore.csproj", "{BDF5EDFC-86FD-471C-A642-7A9CA7C7497A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.ApplicationSupport", "submodules\glydesdk\src\Glyde.ApplicationSupport\Glyde.ApplicationSupport.csproj", "{3B07D245-7F99-4BEA-986B-BECEFB920EFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.ApplicationSupport", "..\submodules\glydesdk\src\Glyde.ApplicationSupport\Glyde.ApplicationSupport.csproj", "{3B07D245-7F99-4BEA-986B-BECEFB920EFF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSpeedManager.Models", "SiteSpeedManager.Models\SiteSpeedManager.Models.csproj", "{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSpeedManager.Models", "..\Common\SiteSpeedManager.Models\SiteSpeedManager.Models.csproj", "{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.JobScheduler", "submodules\glydesdk\src\Glyde.JobScheduler\Glyde.JobScheduler.csproj", "{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.JobScheduler", "..\submodules\glydesdk\src\Glyde.JobScheduler\Glyde.JobScheduler.csproj", "{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSpeedManager.Transport", "SiteSpeedManager.Transport\SiteSpeedManager.Transport.csproj", "{D87C394B-92E5-4649-A5B7-90732D6AAC6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSpeedManager.Transport", "..\Common\SiteSpeedManager.Transport\SiteSpeedManager.Transport.csproj", "{D87C394B-92E5-4649-A5B7-90732D6AAC6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
