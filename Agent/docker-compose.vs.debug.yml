@@ -8,6 +8,8 @@ services:
         source: ${DOCKER_BUILD_SOURCE}
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - AWS_ACCESSKEY=${AWS_ACCESSKEY}
+      - AWS_SECRETKEY=${AWS_SECRETKEY}
     volumes:
       - ./SiteSpeedManager.Agent:/app
       - ~/.nuget/packages:/root/.nuget/packages:ro      
