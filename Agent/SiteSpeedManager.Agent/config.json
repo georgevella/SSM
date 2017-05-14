@@ -4,7 +4,7 @@
     "port": 61959,
     "id": "BFDD8C3B-2FD9-474F-B60C-C07E3E91CE78",
     "sitespeed": {
-      "command": "sitespeed.io.cmd",
+      "command": "/start.sh",
       "preargs": "",
       "postargs": "" 
     } 
@@ -16,7 +16,7 @@
           "agent-registration-queue",
           "agents"
         ],
-        "BaseAddress": "http://localhost:8080/"
+        "BaseAddress": "http://172.17.0.5:80/"
       }
     ]
   }

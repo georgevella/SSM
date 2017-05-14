@@ -17,7 +17,7 @@ services:
     image: nginx:alpine
     network_mode: bridge
     volumes:
-      - .\UI\dist:/usr/share/nginx/html
+      - ..\UI\dist:/usr/share/nginx/html
     expose:
       - 80
 
@@ -28,7 +28,7 @@ services:
       - ssmui    
       - ssmmaster:ssmmaster
     volumes:
-      - .\UI\dockercompose\haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+      - ..\UI\dockercompose\haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
     ports:
       - 8080:80
     expose: 
