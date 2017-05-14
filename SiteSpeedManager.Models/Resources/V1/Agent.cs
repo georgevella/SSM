@@ -11,7 +11,7 @@ namespace SiteSpeedManager.Models.Resources.V1
 
         public int Port { get; set; }
 
-        public bool IsEnabled { get; set; }
+        public AgentStatus Status { get; set; }
 
         public IEnumerable<string> Countries { get; set; } = new string[] { };
     }

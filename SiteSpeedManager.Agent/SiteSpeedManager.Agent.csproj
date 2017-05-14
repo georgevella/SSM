@@ -8,9 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Core\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AWSSDK.SQS" Version="3.3.2.3" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
@@ -19,13 +21,16 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" />
     <PackageReference Include="NLog" Version="5.0.0-beta07" />
+    <PackageReference Include="Quartz" Version="3.0.0-alpha2" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SiteSpeedManager.Models\SiteSpeedManager.Models.csproj" />
+    <ProjectReference Include="..\SiteSpeedManager.Transport\SiteSpeedManager.Transport.csproj" />
     <ProjectReference Include="..\submodules\glydesdk\src\Glyde.AspNetCore.Common\Glyde.AspNetCore.Common.csproj" />
+    <ProjectReference Include="..\submodules\glydesdk\src\Glyde.JobScheduler\Glyde.JobScheduler.csproj" />
   </ItemGroup>
 
 </Project>

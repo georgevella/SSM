@@ -9,10 +9,11 @@ using NLog.Targets;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
-using SiteSpeedManager.Master.Abstractions;
 using SiteSpeedManager.Master.Data;
+using SiteSpeedManager.Master.Data.Models;
 using SiteSpeedManager.Master.Services.Jobs;
-using SiteSpeedManager.Master.Services.Transport;
+using SiteSpeedManager.Master.Services.Mapping;
+using SiteSpeedManager.Models.Resources.V1;
 using SiteSpeedManager.Models.SiteSpeed;
 
 namespace SiteSpeedManager.Master.Bootstrapping
@@ -21,26 +22,14 @@ namespace SiteSpeedManager.Master.Bootstrapping
     {
         public void RegisterServices(IContainerBuilder containerBuilder, IConfigurationService configurationService)
         {
-
             // services
-            containerBuilder.For<IMessageFactory<SiteSpeedJobDetails>>()
-                .Use<MessageFactory<SiteSpeedJobDetails>>()
-                .AsSingleton();
-            containerBuilder.For<IMessageSerializer<SiteSpeedJobDetails>>()
-                .Use<MessageSerializer<SiteSpeedJobDetails>>()
-                .AsSingleton();
-
             containerBuilder.For<ISiteSpeedJobBuilder>().Use<SiteSpeedJobBuilder>().AsTransient();
 
+            containerBuilder.For<IMapper<AgentDao, Agent>>().Use<AgentMapper>();
+            containerBuilder.For<IMapper<Agent, AgentDao>>().Use<AgentDaoMapper>();
 
             // db context
             containerBuilder.For<DataContext>().Use<DataContext>().AsScoped();
-
-            // setup quartz
-            ISchedulerFactory sf = new StdSchedulerFactory();
-            containerBuilder.For<ISchedulerFactory>().Use(sf);
-            containerBuilder.For<IJobFactory>().Use<SimpleInjectorJobFactory>().AsSingleton();
-            containerBuilder.For<IScheduler>().Use<SchedulerAbsraction>().AsSingleton();
 
             // build aws credentials
             var accessKey = Environment.GetEnvironmentVariable("AWS_ACCESSKEY");

@@ -10,16 +10,3 @@ services:
     entrypoint: tail -f /dev/null
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=linux"
-
-  ssmagent1:
-    build:
-      args:
-        source: ${DOCKER_BUILD_SOURCE}
-    volumes:
-      - ~/clrdbg:/clrdbg:ro
-    environment:
-      - AWS_ACCESSKEY=${AWS_ACCESSKEY}
-      - AWS_SECRETKEY=${AWS_SECRETKEY}
-    entrypoint: tail -f /dev/null
-    labels:
-      - "com.microsoft.visualstudio.targetoperatingsystem=linux"

@@ -12,10 +12,4 @@ namespace SiteSpeedManager.Models.Resources.V1
 
         public AgentRegistrationStatus Status { get; set; }
     }
-
-    public enum AgentRegistrationStatus
-    {
-        Pending,
-        Approved
-    }
 }

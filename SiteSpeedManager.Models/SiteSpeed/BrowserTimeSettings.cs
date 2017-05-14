@@ -6,7 +6,7 @@ namespace SiteSpeedManager.Models.SiteSpeed
 
         public int Iterations { get; set; }
 
-        public IConnectivitySettings Connectivity { get; set; }
+        public StandardConnectivitySettings Connectivity { get; set; }
 
         public string ViewPort { get; set; }
 

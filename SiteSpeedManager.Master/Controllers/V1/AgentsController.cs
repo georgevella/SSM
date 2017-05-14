@@ -6,6 +6,7 @@ using Glyde.Web.Api.Controllers;
 using Microsoft.EntityFrameworkCore;
 using SiteSpeedManager.Master.Data;
 using SiteSpeedManager.Master.Data.Models;
+using SiteSpeedManager.Master.Services.Mapping;
 using SiteSpeedManager.Models.Resources.V1;
 
 namespace SiteSpeedManager.Master.Controllers.V1
@@ -13,38 +14,31 @@ namespace SiteSpeedManager.Master.Controllers.V1
     public class AgentsController : ApiController<Agent, Guid>
     {
         private readonly DataContext _dataContext;
+        private readonly IMapper<AgentDao, Agent> _agentMapper;
+        private readonly IMapper<Agent, AgentDao> _agentDaoMapper;
 
-        public AgentsController(DataContext dataContext)
+        public AgentsController(DataContext dataContext, IMapper<AgentDao, Agent> agentMapper, IMapper<Agent, AgentDao> agentDaoMapper)
         {
             _dataContext = dataContext;
+            _agentMapper = agentMapper;
+            _agentDaoMapper = agentDaoMapper;
         }
 
         public override async Task<IEnumerable<Agent>> GetAll()
         {
             return await Task.Run<IEnumerable<Agent>>(() =>
-                _dataContext.Agents.Where(a => a.IsApproved).Select(dao => new Agent()
-                {
-                    Id = dao.HostIdentifier,
-                    Hostname = dao.Hostname,
-                    Port = dao.Port,
-                    IsEnabled = !dao.IsDisabled,
-                    Countries = dao.Countries.Select(x => x.Country.Id)
-                }).ToList()
+                _dataContext.Agents.Include(x => x.Countries).Select(_agentMapper.Map).ToList()
             );
         }
 
         public override async Task<Agent> Get(Guid id)
         {
-            var result = await Task.Run(() => _dataContext.Agents
-                .Where(a => a.IsApproved && a.HostIdentifier == id)
-                .Select(dao => new Agent()
-                {
-                    Id = dao.HostIdentifier,
-                    Hostname = dao.Hostname,
-                    Port = dao.Port,
-                    IsEnabled = !dao.IsDisabled,
-                    Countries = dao.Countries.Select(x => x.Country.Id)
-                }).FirstOrDefault());
+            var result = await _dataContext.Agents
+                .Include(x => x.Countries)
+                .ToAsyncEnumerable()
+                .Where(a => a.HostIdentifier == id)
+                .Select(_agentMapper.Map)
+                .FirstOrDefault();
 
             return result;
         }
@@ -52,12 +46,9 @@ namespace SiteSpeedManager.Master.Controllers.V1
         public override async Task<bool> Update(Guid id, Agent resource)
         {
             var dao = await _dataContext.Agents.Include(x => x.Countries)
-                .FirstOrDefaultAsync(a => a.IsApproved && a.HostIdentifier == id);
+                .FirstOrDefaultAsync(a => a.HostIdentifier == id);
 
-            dao.Hostname = resource.Hostname;
-            dao.IsDisabled = !resource.IsEnabled;
-            dao.Port = resource.Port;
-            dao.LastUpdated = DateTime.Now;
+            _agentDaoMapper.Map(resource, dao);
 
             // update country list
             var incomingListOfCountries = _dataContext.Countries.Where(c => resource.Countries.Contains(c.Id)).ToDictionary(x => x.Id);

@@ -22,13 +22,9 @@ namespace SiteSpeedManager.Master.Services.Jobs
             _scheduler = scheduler;
             _log = log;
         }
+
         public async Task RegisterJob(string countryId, Uri domain, string path, SiteSpeedSettings settings)
         {
-            if (!_scheduler.IsStarted)
-            {
-                _log.Info("Scheduler was not started, starting now ...");
-                await _scheduler.Start();
-            }
 
             _log.Info($"Registering job for [{domain}][{path}] in country [{countryId}]");
 

@@ -29,13 +29,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bootstrapping", "bootstrapp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configuration", "configuration", "{9A2404AE-0E7C-424A-85D1-5097B4396DC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glyde.NoSql", "submodules\glydesdk\src\Glyde.NoSql\Glyde.NoSql.csproj", "{DF98D8EA-DEC9-4942-A7F7-717472733A13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.NoSql", "submodules\glydesdk\src\Glyde.NoSql\Glyde.NoSql.csproj", "{DF98D8EA-DEC9-4942-A7F7-717472733A13}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "glydesdk", "glydesdk", "{1EF33406-6674-473D-A7F9-3707028CB6B5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{6F799796-E404-49EF-BD4F-554888F4F8DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteSpeedManager.Master", "SiteSpeedManager.Master\SiteSpeedManager.Master.csproj", "{A7894DDC-650B-4AF1-89D2-E70BF7C4939B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSpeedManager.Agent", "SiteSpeedManager.Agent\SiteSpeedManager.Agent.csproj", "{59EA1724-5EA2-4EF9-B398-CE8995A64195}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "appsupport", "appsupport", "{09B08262-400E-4709-AEB0-B718C22AFDB1}"
 EndProject
@@ -43,15 +43,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Data", "submodules\gl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.Data.EfCore", "submodules\glydesdk\src\Glyde.Data.EfCore\Glyde.Data.EfCore.csproj", "{BDF5EDFC-86FD-471C-A642-7A9CA7C7497A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glyde.ApplicationSupport", "submodules\glydesdk\src\Glyde.ApplicationSupport\Glyde.ApplicationSupport.csproj", "{3B07D245-7F99-4BEA-986B-BECEFB920EFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.ApplicationSupport", "submodules\glydesdk\src\Glyde.ApplicationSupport\Glyde.ApplicationSupport.csproj", "{3B07D245-7F99-4BEA-986B-BECEFB920EFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteSpeedManager.Models", "SiteSpeedManager.Models\SiteSpeedManager.Models.csproj", "{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2E6E63E2-18A2-478E-A769-B19E7C6D29C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSpeedManager.Models", "SiteSpeedManager.Models\SiteSpeedManager.Models.csproj", "{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Glyde.JobScheduler", "submodules\glydesdk\src\Glyde.JobScheduler\Glyde.JobScheduler.csproj", "{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteSpeedManager.Transport", "SiteSpeedManager.Transport\SiteSpeedManager.Transport.csproj", "{7A1C1459-7B6B-4255-976E-2AA31FF881BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteSpeedManager.Transport", "SiteSpeedManager.Transport\SiteSpeedManager.Transport.csproj", "{D87C394B-92E5-4649-A5B7-90732D6AAC6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,10 +89,10 @@ Global
 		{DF98D8EA-DEC9-4942-A7F7-717472733A13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF98D8EA-DEC9-4942-A7F7-717472733A13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF98D8EA-DEC9-4942-A7F7-717472733A13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7894DDC-650B-4AF1-89D2-E70BF7C4939B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7894DDC-650B-4AF1-89D2-E70BF7C4939B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7894DDC-650B-4AF1-89D2-E70BF7C4939B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7894DDC-650B-4AF1-89D2-E70BF7C4939B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59EA1724-5EA2-4EF9-B398-CE8995A64195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59EA1724-5EA2-4EF9-B398-CE8995A64195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59EA1724-5EA2-4EF9-B398-CE8995A64195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59EA1724-5EA2-4EF9-B398-CE8995A64195}.Release|Any CPU.Build.0 = Release|Any CPU
 		{21CD366D-9F40-4703-A572-2F508F62B934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{21CD366D-9F40-4703-A572-2F508F62B934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21CD366D-9F40-4703-A572-2F508F62B934}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -111,18 +109,14 @@ Global
 		{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FE3AD99-B38B-4C4D-AB08-AAE01B213F8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E6E63E2-18A2-478E-A769-B19E7C6D29C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E6E63E2-18A2-478E-A769-B19E7C6D29C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E6E63E2-18A2-478E-A769-B19E7C6D29C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E6E63E2-18A2-478E-A769-B19E7C6D29C4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD253FF-94B4-4F31-95E0-733A4B1BD11A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A1C1459-7B6B-4255-976E-2AA31FF881BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A1C1459-7B6B-4255-976E-2AA31FF881BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A1C1459-7B6B-4255-976E-2AA31FF881BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A1C1459-7B6B-4255-976E-2AA31FF881BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D87C394B-92E5-4649-A5B7-90732D6AAC6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D87C394B-92E5-4649-A5B7-90732D6AAC6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D87C394B-92E5-4649-A5B7-90732D6AAC6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D87C394B-92E5-4649-A5B7-90732D6AAC6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

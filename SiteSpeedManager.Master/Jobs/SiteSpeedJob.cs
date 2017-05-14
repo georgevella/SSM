@@ -4,8 +4,8 @@ using Amazon.SQS;
 using NLog;
 using Quartz;
 using SiteSpeedManager.Master.Services.Jobs;
-using SiteSpeedManager.Master.Services.Transport;
 using SiteSpeedManager.Models.SiteSpeed;
+using SiteSpeedManager.Transport;
 
 namespace SiteSpeedManager.Master.Jobs
 {
@@ -24,23 +24,25 @@ namespace SiteSpeedManager.Master.Jobs
 
         public async Task Execute(IJobExecutionContext context)
         {
-            _logger.Info("Starting job...");
+            _logger.Trace("SiteSpeedJob::Execute() >>");
 
             var domain = (Uri)context.JobDetail.JobDataMap[SiteSpeedJobDataKeys.Domain];
             var path = (string)context.JobDetail.JobDataMap[SiteSpeedJobDataKeys.Path];
             var settings = (SiteSpeedSettings)context.JobDetail.JobDataMap[SiteSpeedJobDataKeys.Settings];
             var country = (string)context.JobDetail.JobDataMap[SiteSpeedJobDataKeys.Country];
 
-
+            _logger.Debug("Building message over sqs");
             var request = await _messageFactory.CreateSendMessageRequest(country, new SiteSpeedJobDetails()
             {
                 Uri = new Uri(domain, path),
                 Settings = settings
             });
 
+            _logger.Debug("Sending message over sqs");
             var response = await _sqsClient.SendMessageAsync(request);
 
             _logger.Info($"SQS Response received -> {response.HttpStatusCode}");
+            _logger.Trace("SiteSpeedJob::Execute() <<");
         }
     }
 }

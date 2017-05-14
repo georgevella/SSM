@@ -74,31 +74,31 @@ namespace SiteSpeedManager.Master.Controllers.V1
             return list;
         }
 
-        public override async Task<CreateResourceResult<string>> Create(SiteSpeedJobResource resource)
-        {
-            var id = $"{resource.Site}-{resource.Path}";
+        //public override async Task<CreateResourceResult<string>> Create(SiteSpeedJobResource resource)
+        //{
+        //    var id = $"{resource.Site}-{resource.Path}";
 
-            IJobDetail job = JobBuilder.Create<SiteSpeedJob>()
-                .SetJobData(new JobDataMap()
-                {
-                    { "site", resource.Site },
-                    { "path", resource.Path },
-                })
-                .WithIdentity($"{resource.Path}", $"{resource.Site}")
-                .Build();
+        //    IJobDetail job = JobBuilder.Create<SiteSpeedJob>()
+        //        .SetJobData(new JobDataMap()
+        //        {
+        //            { "site", resource.Site },
+        //            { "path", resource.Path },
+        //        })
+        //        .WithIdentity($"{resource.Path}", $"{resource.Site}")
+        //        .Build();
 
-            ITrigger trigger = TriggerBuilder.Create()
-                .WithIdentity($"{resource.Path}", $"{resource.Site}")
-                .WithCronSchedule(resource.Crontab)
-                .Build();
+        //    ITrigger trigger = TriggerBuilder.Create()
+        //        .WithIdentity($"{resource.Path}", $"{resource.Site}")
+        //        .WithCronSchedule(resource.Crontab)
+        //        .Build();
 
-            var dateTimeOffset = await _scheduler.ScheduleJob(job, trigger);
-            resource.NextExecutionTime = dateTimeOffset.DateTime;
+        //    var dateTimeOffset = await _scheduler.ScheduleJob(job, trigger);
+        //    resource.NextExecutionTime = dateTimeOffset.DateTime;
 
-            if (!_scheduler.IsStarted)
-                await _scheduler.Start();
+        //    if (!_scheduler.IsStarted)
+        //        await _scheduler.Start();
 
-            return Created(id);
-        }
+        //    return Created(id);
+        //}
     }
 }

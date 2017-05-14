@@ -1,6 +1,6 @@
 ﻿using Amazon.SQS.Model;
 
-namespace SiteSpeedManager.Master.Services.Transport
+namespace SiteSpeedManager.Transport
 {
     public interface IMessageTx
     {

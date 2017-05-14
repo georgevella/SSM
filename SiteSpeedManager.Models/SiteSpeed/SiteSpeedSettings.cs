@@ -1,7 +1,10 @@
-﻿namespace SiteSpeedManager.Models.SiteSpeed
+﻿using Newtonsoft.Json;
+
+namespace SiteSpeedManager.Models.SiteSpeed
 {
     public class SiteSpeedSettings
     {
+        [JsonProperty("browsertime")]
         public BrowserTimeSettings BrowserTime { get; set; }
 
         public GraphiteSettings Graphite { get; set; }
@@ -14,7 +17,7 @@
 
         public string FirstParty { get; set; }
 
-        // ReSharper disable once InconsistentNaming
-        public string ResultBaseURL { get; set; }
+        [JsonProperty("resultBaseURL")]
+        public string ResultBaseUrl { get; set; }
     }
 }

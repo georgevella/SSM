@@ -8,9 +8,10 @@
     "KnownResources": [
       {
         "ResourceNames": [
-          "agent-registration-queue"
+          "agent-registration-queue",
+          "agents"
         ],
-        "BaseAddress": "http://localhost.fiddler:55297/"
+        "BaseAddress": "http://localhost:8080/"
       }
     ]
   }

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Amazon.SQS;
 using Amazon.SQS.Model;
 
-namespace SiteSpeedManager.Master.Services.Transport
+namespace SiteSpeedManager.Transport
 {
     public interface IMessageFactory<in TContent>
     {

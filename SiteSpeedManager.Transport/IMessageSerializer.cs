@@ -3,11 +3,12 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace SiteSpeedManager.Master.Services.Transport
+namespace SiteSpeedManager.Transport
 {
-    public interface IMessageSerializer<in TContent>
+    public interface IMessageSerializer<TContent>
     {
         string SerializeAsString(TContent content);
+        TContent DeserializeFromString(string raw);
     }
 
     internal class MessageSerializer<TContent> : IMessageSerializer<TContent>
@@ -38,6 +39,15 @@ namespace SiteSpeedManager.Master.Services.Transport
                 }
 
                 return sw.ToString();
+            }
+        }
+
+        public TContent DeserializeFromString(string raw)
+        {
+            using (var sr = new StringReader(raw))
+            using (var tr = new JsonTextReader(sr))
+            {
+                return _serializer.Deserialize<TContent>(tr);
             }
         }
     }
