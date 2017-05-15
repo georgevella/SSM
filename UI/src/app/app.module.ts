@@ -1,4 +1,3 @@
-import { AgentService } from './agents/agent.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,11 +15,16 @@ import {AppviewsModule} from "./views/appviews/appviews.module";
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
 import { AgentsComponent } from './agents/agents.component';
+import { CountryListComponent } from './country-list/country-list.component';
+
+import { AgentService } from './agents/agent.service';
+import { CountryService } from './country.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AgentsComponent
+    AgentsComponent,
+    CountryListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,10 @@ import { AgentsComponent } from './agents/agents.component';
     AppviewsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    CountryService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
