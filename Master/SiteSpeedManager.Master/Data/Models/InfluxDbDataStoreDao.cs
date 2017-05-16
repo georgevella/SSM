@@ -2,9 +2,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SiteSpeedManager.Master.Data.Models
 {
-    public class InfluxDbDataStoreDao : DataStoreDao
+    public class InfluxDbDataStoreDao : DbDataStoreDao
     {
-        [Column("database")]
+        [Column("inf-database")]
         public string Database { get; set; }
     }
 }

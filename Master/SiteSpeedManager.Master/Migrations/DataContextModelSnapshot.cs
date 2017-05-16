@@ -2,7 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using SiteSpeedManager.Master.Data;
+using SiteSpeedManager.Master.Data.Models;
 
 namespace SiteSpeedManager.Master.Migrations
 {
@@ -14,7 +16,7 @@ namespace SiteSpeedManager.Master.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.AgentCountryAssociation", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.AgentCountryAssociation", b =>
                 {
                     b.Property<int>("AgentId")
                         .HasColumnName("agentId");
@@ -29,7 +31,7 @@ namespace SiteSpeedManager.Master.Migrations
                     b.ToTable("agentCountries");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.AgentDao", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.AgentDao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -65,7 +67,7 @@ namespace SiteSpeedManager.Master.Migrations
                     b.ToTable("agents");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.CountryDao", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.CountryDao", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
@@ -82,39 +84,26 @@ namespace SiteSpeedManager.Master.Migrations
                     b.ToTable("countries");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.DataStoreDao", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.DataStoreDao", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
 
-                    b.Property<bool>("HasCredentials")
-                        .HasColumnName("hasCredentials");
-
-                    b.Property<string>("Host")
-                        .HasColumnName("host");
-
-                    b.Property<bool>("IsDefault")
-                        .HasColumnName("isDefault");
-
-                    b.Property<string>("Password")
-                        .HasColumnName("password");
-
-                    b.Property<int>("Port")
-                        .HasColumnName("port");
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
 
                     b.Property<int>("Type")
                         .HasColumnName("type");
 
-                    b.Property<string>("Username")
-                        .HasColumnName("username");
-
                     b.HasKey("Id");
 
                     b.ToTable("datastores");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("DataStoreDao");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.PageCountryAssociation", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.PageCountryAssociation", b =>
                 {
                     b.Property<int>("PageId")
                         .HasColumnName("pageId");
@@ -129,7 +118,7 @@ namespace SiteSpeedManager.Master.Migrations
                     b.ToTable("pageCountries");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.PageDao", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.PageDao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -157,7 +146,7 @@ namespace SiteSpeedManager.Master.Migrations
                     b.ToTable("pages");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.PerformanceProfileDao", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.PerformanceProfileDao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -192,7 +181,7 @@ namespace SiteSpeedManager.Master.Migrations
                     b.ToTable("performanceProfiles");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.SiteCountryAssociation", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.SiteCountryAssociation", b =>
                 {
                     b.Property<int>("SiteId")
                         .HasColumnName("siteId");
@@ -207,14 +196,11 @@ namespace SiteSpeedManager.Master.Migrations
                     b.ToTable("siteCountries");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.SiteDao", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.SiteDao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
-
-                    b.Property<int?>("DataStoreId")
-                        .HasColumnName("datastoreId");
 
                     b.Property<string>("Domain")
                         .HasColumnName("domain");
@@ -222,14 +208,22 @@ namespace SiteSpeedManager.Master.Migrations
                     b.Property<bool>("IsEnabled")
                         .HasColumnName("isEnabled");
 
+                    b.Property<string>("ResultStoreId")
+                        .HasColumnName("resultStoreId");
+
+                    b.Property<string>("TimingStoreId")
+                        .HasColumnName("timingStoreId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("DataStoreId");
+                    b.HasIndex("ResultStoreId");
+
+                    b.HasIndex("TimingStoreId");
 
                     b.ToTable("sites");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.SiteProfileAssociation", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.SiteProfileAssociation", b =>
                 {
                     b.Property<int>("SiteId")
                         .HasColumnName("siteId");
@@ -246,67 +240,158 @@ namespace SiteSpeedManager.Master.Migrations
                     b.ToTable("siteProfiles");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.AgentCountryAssociation", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.GrafanaDbDataStoreDao", b =>
                 {
-                    b.HasOne("SiteSpeedController.Master.Data.Models.AgentDao", "Agent")
+                    b.HasBaseType("SiteSpeedManager.Master.Data.Models.DataStoreDao");
+
+                    b.Property<bool>("HasCredentials")
+                        .HasColumnName("db-usesCredentials");
+
+                    b.Property<string>("Host")
+                        .HasColumnName("db-host");
+
+                    b.Property<int>("HttpPort")
+                        .HasColumnName("grf-httpPort");
+
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnName("db-isEnabled");
+
+                    b.Property<string>("Namespace")
+                        .HasColumnName("grf-namespace");
+
+                    b.Property<string>("Password")
+                        .HasColumnName("db-password");
+
+                    b.Property<int>("Port")
+                        .HasColumnName("db-port");
+
+                    b.Property<string>("Username")
+                        .HasColumnName("db-username");
+
+                    b.ToTable("datastores");
+
+                    b.HasDiscriminator().HasValue("GrafanaDbDataStoreDao");
+                });
+
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.InfluxDbDataStoreDao", b =>
+                {
+                    b.HasBaseType("SiteSpeedManager.Master.Data.Models.DataStoreDao");
+
+                    b.Property<string>("Database")
+                        .HasColumnName("inf-database");
+
+                    b.Property<bool>("HasCredentials")
+                        .HasColumnName("db-usesCredentials");
+
+                    b.Property<string>("Host")
+                        .HasColumnName("db-host");
+
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnName("db-isEnabled");
+
+                    b.Property<string>("Password")
+                        .HasColumnName("db-password");
+
+                    b.Property<int>("Port")
+                        .HasColumnName("db-port");
+
+                    b.Property<string>("Username")
+                        .HasColumnName("db-username");
+
+                    b.ToTable("datastores");
+
+                    b.HasDiscriminator().HasValue("InfluxDbDataStoreDao");
+                });
+
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.S3DataStoreDao", b =>
+                {
+                    b.HasBaseType("SiteSpeedManager.Master.Data.Models.DataStoreDao");
+
+                    b.Property<string>("BucketName")
+                        .HasColumnName("aws-s3-bucket");
+
+                    b.Property<string>("Key")
+                        .HasColumnName("aws-accesskey");
+
+                    b.Property<string>("Path")
+                        .HasColumnName("aws-s3-path");
+
+                    b.Property<string>("Region")
+                        .HasColumnName("aws-region");
+
+                    b.Property<string>("Secret")
+                        .HasColumnName("aws-secretkey");
+
+                    b.ToTable("datastores");
+
+                    b.HasDiscriminator().HasValue("S3DataStoreDao");
+                });
+
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.AgentCountryAssociation", b =>
+                {
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.AgentDao", "Agent")
                         .WithMany("Countries")
                         .HasForeignKey("AgentId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SiteSpeedController.Master.Data.Models.CountryDao", "Country")
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.CountryDao", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.PageCountryAssociation", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.PageCountryAssociation", b =>
                 {
-                    b.HasOne("SiteSpeedController.Master.Data.Models.CountryDao", "Country")
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.CountryDao", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SiteSpeedController.Master.Data.Models.PageDao", "Page")
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.PageDao", "Page")
                         .WithMany("Countries")
                         .HasForeignKey("PageId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.PageDao", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.PageDao", b =>
                 {
-                    b.HasOne("SiteSpeedController.Master.Data.Models.SiteDao", "Site")
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.SiteDao", "Site")
                         .WithMany("Pages")
                         .HasForeignKey("SiteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.SiteCountryAssociation", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.SiteCountryAssociation", b =>
                 {
-                    b.HasOne("SiteSpeedController.Master.Data.Models.CountryDao", "Country")
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.CountryDao", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SiteSpeedController.Master.Data.Models.SiteDao", "Site")
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.SiteDao", "Site")
                         .WithMany("Countries")
                         .HasForeignKey("SiteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.SiteDao", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.SiteDao", b =>
                 {
-                    b.HasOne("SiteSpeedController.Master.Data.Models.DataStoreDao", "DataStore")
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.DataStoreDao", "ResultStore")
                         .WithMany()
-                        .HasForeignKey("DataStoreId");
+                        .HasForeignKey("ResultStoreId");
+
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.DataStoreDao", "TimingStore")
+                        .WithMany()
+                        .HasForeignKey("TimingStoreId");
                 });
 
-            modelBuilder.Entity("SiteSpeedController.Master.Data.Models.SiteProfileAssociation", b =>
+            modelBuilder.Entity("SiteSpeedManager.Master.Data.Models.SiteProfileAssociation", b =>
                 {
-                    b.HasOne("SiteSpeedController.Master.Data.Models.PerformanceProfileDao", "Profile")
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.PerformanceProfileDao", "Profile")
                         .WithMany()
                         .HasForeignKey("ProfileId1");
 
-                    b.HasOne("SiteSpeedController.Master.Data.Models.SiteDao", "Site")
+                    b.HasOne("SiteSpeedManager.Master.Data.Models.SiteDao", "Site")
                         .WithMany("PerformanceProfiles")
                         .HasForeignKey("SiteId")
                         .OnDelete(DeleteBehavior.Cascade);

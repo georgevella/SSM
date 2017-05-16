@@ -1,7 +1,7 @@
+using SiteSpeedManager.Master.Data.Contracts;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using SiteSpeedManager.Master.Data.Contracts;
 
 namespace SiteSpeedManager.Master.Data.Models
 {
@@ -15,9 +15,13 @@ namespace SiteSpeedManager.Master.Data.Models
         [Column("domain")]
         public string Domain { get; set; }
 
-        [Column("datastoreId")]
-        public int? DataStoreId { get; set; }
-        public DataStoreDao DataStore { get; set; }
+        [Column("timingStoreId")]
+        public string TimingStoreId { get; set; }
+        public DataStoreDao TimingStore { get; set; }
+
+        [Column("resultStoreId")]
+        public string ResultStoreId { get; set; }
+        public DataStoreDao ResultStore { get; set; }
 
         [Column("isEnabled")]
         public bool IsEnabled { get; set; }

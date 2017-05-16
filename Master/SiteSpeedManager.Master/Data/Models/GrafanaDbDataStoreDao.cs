@@ -2,12 +2,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SiteSpeedManager.Master.Data.Models
 {
-    public class GrafanaDbDataStoreDao : DataStoreDao
+    public class GrafanaDbDataStoreDao : DbDataStoreDao
     {
-        [Column("httpPort")]
+        [Column("grf-httpPort")]
         public int HttpPort { get; set; }
 
-        [Column("namespace")]
+        [Column("grf-namespace")]
         public string Namespace { get; set; }
     }
 }

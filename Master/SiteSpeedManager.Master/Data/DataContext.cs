@@ -98,6 +98,10 @@ namespace SiteSpeedManager.Master.Data
                 .HasIndex(x => x.HostIdentifier)
                 .IsUnique();
 
+            modelBuilder.Entity<GrafanaDbDataStoreDao>();
+            modelBuilder.Entity<InfluxDbDataStoreDao>();
+            modelBuilder.Entity<S3DataStoreDao>();
+
             base.OnModelCreating(modelBuilder);
         }
     }

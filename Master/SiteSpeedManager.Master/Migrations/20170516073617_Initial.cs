@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SiteSpeedManager.Master.Migrations
@@ -43,15 +44,23 @@ namespace SiteSpeedManager.Master.Migrations
                 name: "datastores",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    hasCredentials = table.Column<bool>(nullable: false),
-                    host = table.Column<string>(nullable: true),
-                    isDefault = table.Column<bool>(nullable: false),
-                    password = table.Column<string>(nullable: true),
-                    port = table.Column<int>(nullable: false),
+                    id = table.Column<string>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
                     type = table.Column<int>(nullable: false),
-                    username = table.Column<string>(nullable: true)
+                    dbusesCredentials = table.Column<bool>(name: "db-usesCredentials", nullable: true),
+                    dbhost = table.Column<string>(name: "db-host", nullable: true),
+                    grfhttpPort = table.Column<int>(name: "grf-httpPort", nullable: true),
+                    dbisEnabled = table.Column<bool>(name: "db-isEnabled", nullable: true),
+                    grfnamespace = table.Column<string>(name: "grf-namespace", nullable: true),
+                    dbpassword = table.Column<string>(name: "db-password", nullable: true),
+                    dbport = table.Column<int>(name: "db-port", nullable: true),
+                    dbusername = table.Column<string>(name: "db-username", nullable: true),
+                    infdatabase = table.Column<string>(name: "inf-database", nullable: true),
+                    awss3bucket = table.Column<string>(name: "aws-s3-bucket", nullable: true),
+                    awsaccesskey = table.Column<string>(name: "aws-accesskey", nullable: true),
+                    awss3path = table.Column<string>(name: "aws-s3-path", nullable: true),
+                    awsregion = table.Column<string>(name: "aws-region", nullable: true),
+                    awssecretkey = table.Column<string>(name: "aws-secretkey", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -108,16 +117,23 @@ namespace SiteSpeedManager.Master.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    datastoreId = table.Column<int>(nullable: true),
                     domain = table.Column<string>(nullable: true),
-                    isEnabled = table.Column<bool>(nullable: false)
+                    isEnabled = table.Column<bool>(nullable: false),
+                    resultStoreId = table.Column<string>(nullable: true),
+                    timingStoreId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_sites", x => x.id);
                     table.ForeignKey(
-                        name: "FK_sites_datastores_datastoreId",
-                        column: x => x.datastoreId,
+                        name: "FK_sites_datastores_resultStoreId",
+                        column: x => x.resultStoreId,
+                        principalTable: "datastores",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_sites_datastores_timingStoreId",
+                        column: x => x.timingStoreId,
                         principalTable: "datastores",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
@@ -246,9 +262,14 @@ namespace SiteSpeedManager.Master.Migrations
                 column: "countryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_sites_datastoreId",
+                name: "IX_sites_resultStoreId",
                 table: "sites",
-                column: "datastoreId");
+                column: "resultStoreId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_sites_timingStoreId",
+                table: "sites",
+                column: "timingStoreId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_siteProfiles_ProfileId1",

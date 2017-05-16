@@ -1,20 +1,19 @@
-﻿using System;
-using Amazon.Runtime;
+﻿using Amazon.Runtime;
 using Amazon.SQS;
+using AutoMapper;
 using Glyde.Configuration;
 using Glyde.Di;
 using NLog;
 using NLog.Config;
 using NLog.Targets;
 using Quartz;
-using Quartz.Impl;
 using Quartz.Spi;
 using SiteSpeedManager.Master.Data;
 using SiteSpeedManager.Master.Data.Models;
 using SiteSpeedManager.Master.Services.Jobs;
 using SiteSpeedManager.Master.Services.Mapping;
 using SiteSpeedManager.Models.Resources.V1;
-using SiteSpeedManager.Models.SiteSpeed;
+using System;
 
 namespace SiteSpeedManager.Master.Bootstrapping
 {
@@ -22,6 +21,13 @@ namespace SiteSpeedManager.Master.Bootstrapping
     {
         public void RegisterServices(IContainerBuilder containerBuilder, IConfigurationService configurationService)
         {
+            Mapper.Initialize(expression =>
+            {
+                expression.CreateMap<GrafanaDbDataStoreDao, GrafanaDataSourceResource>();
+                expression.CreateMap<InfluxDbDataStoreDao, InfluxDbDataSourceResource>();
+                expression.CreateMap<S3DataStoreDao, S3DataSourceResource>();
+            });
+
             // services
             containerBuilder.For<ISiteSpeedJobBuilder>().Use<SiteSpeedJobBuilder>().AsTransient();
 
