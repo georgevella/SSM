@@ -2,22 +2,33 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.ComponentModel;
+using System.Runtime.Serialization;
 
 namespace SiteSpeedManager.Models.Resources.V1
 {
     [Resource("data-source-types")]
     public class DataSourceTypeResource : Resource<string>
     {
-
+        public string DisplayName { get; set; }
     }
 
     public enum DataSourceType
     {
+        [DisplayName("Grafana")]
+        [EnumMember(Value = "grafana")]
         GrafanaDb,
+
+        [DisplayName("InfluxDB")]
+        [EnumMember(Value = "influxdb")]
         InfluxDb,
+
+        [DisplayName("Amazon S3 Bucket")]
+        [EnumMember(Value = "s3")]
         S3Bucket
     }
 
+    [Resource("data-sources")]
     [JsonConverter(typeof(DataSourceResourceConverter))]
     public abstract class DataSourceResource : Resource<string>
     {
@@ -36,6 +47,8 @@ namespace SiteSpeedManager.Models.Resources.V1
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             var obj = JObject.Load(reader);
+
+            throw new NotImplementedException();
         }
 
         /// <inheritdoc />
